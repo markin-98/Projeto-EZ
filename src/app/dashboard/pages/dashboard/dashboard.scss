@@ -1,0 +1,141 @@
+.page{
+  min-height: 100vh;
+  background: #0f0f0f;
+  color: white;
+  padding: 18px;
+}
+
+.topbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.title h1{ margin: 0; }
+.subtitle{ margin: 4px 0 0; color: #cfcfcf; font-size: 13px; }
+
+.actions{ display: flex; gap: 10px; }
+
+button{
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.ghost{
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: #cfcfcf;
+}
+
+.danger{
+  background: #ff2d2d;
+  color: white;
+}
+
+.kpis{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.kpi{
+  background: #181818;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.kpi .label{ color: #cfcfcf; font-size: 13px; }
+.kpi .value{ font-size: 26px; margin-top: 4px; }
+
+.panel{
+  background: #181818;
+  border: 1px solid #222;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.controls{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+input{
+  flex: 1;
+  min-width: 220px;
+  padding: 12px 10px;
+  border-radius: 8px;
+  border: 1px solid #2a2a2a;
+  background: #101010;
+  color: white;
+  outline: none;
+}
+
+.chips{ display: flex; gap: 8px; }
+
+.chip{
+  background: transparent;
+  border: 1px solid #2a2a2a;
+  color: #cfcfcf;
+  padding: 10px 12px;
+  border-radius: 999px;
+}
+
+.chip.active{
+  border-color: #ff2d2d;
+  color: white;
+}
+
+.loading{ color: #cfcfcf; padding: 8px 0; }
+.empty{ color: #cfcfcf; padding: 8px 0; }
+
+table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+th, td{
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 14px;
+}
+
+.badge{
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  border: 1px solid #2a2a2a;
+  color: #cfcfcf;
+}
+
+.badge.ok{
+  border-color: #2ecc71;
+  color: #bff3d0;
+}
+
+.badge.bad{
+  border-color: #ff2d2d;
+  color: #ffb3b3;
+}
+
+.error{
+  background: #2a1414;
+  border: 1px solid #4a1a1a;
+  padding: 10px;
+  border-radius: 8px;
+  color: #ffb3b3;
+  margin-bottom: 12px;
+}

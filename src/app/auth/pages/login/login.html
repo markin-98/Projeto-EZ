@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card">
+    <h1 class="title">Login</h1>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+      <div class="field">
+        <label>E-mail</label>
+        <input type="email" formControlName="email" />
+
+        <div class="error" *ngIf="emailField?.touched">
+          <span *ngIf="emailField?.hasError('required')">Campo obrigatório</span>
+          <span *ngIf="emailField?.hasError('email')">Email inválido</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Senha</label>
+        <input type="password" formControlName="password" />
+
+        <div class="error" *ngIf="passwordField?.touched">
+          <span *ngIf="passwordField?.hasError('required')">Campo obrigatório</span>
+          <span *ngIf="passwordField?.hasError('minlength')">Mínimo de 8 caracteres</span>
+        </div>
+      </div>
+
+      <div class="api-error" *ngIf="errorMsg">{{ errorMsg }}</div>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Entrando...' : 'Entrar' }}
+      </button>
+
+      <div class="links">
+        <a routerLink="/cadastro">Cadastre-se</a>
+        <a routerLink="/recuperar-senha">Esqueci minha senha</a>
+      </div>
+    </form>
+  </div>
+</div>

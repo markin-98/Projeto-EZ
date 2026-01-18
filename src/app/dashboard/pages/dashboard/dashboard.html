@@ -1,0 +1,98 @@
+<div class="page">
+  <header class="topbar">
+    <div class="title">
+      <h1>Dashboard</h1>
+      <p class="subtitle">Logado como: <b>{{ userEmail || '-' }}</b></p>
+    </div>
+
+    <div class="actions">
+      <button class="ghost" (click)="load(period)" [disabled]="loading">Atualizar</button>
+      <button class="danger" (click)="logout()">Sair</button>
+    </div>
+  </header>
+
+  <div class="error" *ngIf="errorMsg">
+    <div>{{ errorMsg }}</div>
+    <button class="ghost" (click)="load(period)" [disabled]="loading">Tentar novamente</button>
+  </div>
+
+  <section class="kpis" *ngIf="!errorMsg">
+    <div class="kpi">
+      <div class="label">Receita</div>
+      <div class="value">{{ kpis.receita | currency:'BRL':'symbol':'1.2-2' }}</div>
+    </div>
+
+    <div class="kpi">
+      <div class="label">Pedidos</div>
+      <div class="value">{{ kpis.pedidos }}</div>
+    </div>
+
+    <div class="kpi">
+      <div class="label">Ticket médio</div>
+      <div class="value">{{ kpis.ticketMedio | currency:'BRL':'symbol':'1.2-2' }}</div>
+    </div>
+  </section>
+
+  <section class="panel" *ngIf="!errorMsg">
+    <div class="controls">
+      
+      <input
+        type="text"
+        placeholder="Buscar por cliente..."
+        [value]="search"
+        (input)="setSearch(($any($event.target)).value)"
+      />
+
+      <div class="right-controls">
+        
+        <div class="chips">
+          <button class="chip" [class.active]="period===7" (click)="load(7)" [disabled]="loading">7 dias</button>
+          <button class="chip" [class.active]="period===30" (click)="load(30)" [disabled]="loading">30 dias</button>
+        </div>
+
+        
+        <button class="ghost" (click)="toggleSort()" [disabled]="loading">
+          Ordenar por valor
+          <span *ngIf="sort==='VALOR_DESC'">↓</span>
+          <span *ngIf="sort==='VALOR_ASC'">↑</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="loading" *ngIf="loading">Carregando...</div>
+
+    <div class="empty" *ngIf="!loading && filtered.length === 0">
+      Nenhum registro encontrado.
+    </div>
+
+    <!-- TABELA: Data | Cliente | Valor | Status -->
+    <table *ngIf="!loading && filtered.length > 0">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Cliente</th>
+          <th>Valor</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let o of filtered">
+          <td>{{ o.data | date:'dd/MM/yyyy' }}</td>
+          <td>{{ o.cliente }}</td>
+          <td>{{ o.valor | currency:'BRL':'symbol':'1.2-2' }}</td>
+          <td>
+            <span
+              class="badge"
+              [class.ok]="o.status==='PAGO'"
+              [class.warn]="o.status==='PENDENTE'"
+              [class.bad]="o.status==='CANCELADO'"
+            >
+              {{ o.status }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

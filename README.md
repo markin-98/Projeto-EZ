@@ -1,59 +1,73 @@
-# ProjetoEZ
+# Projeto Prático EZ
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.0.
+Angular + TypeScript | Login + Senhas + Dashboard
 
-## Development server
+## Objetivo
 
-To start a local development server, run:
+Construir um app Angular com fluxo de autenticação completo e um dashboard com KPIs, gráfico e tabela.
 
+## Como rodar
+
+1. Instale as dependências do projeto:
+```bash
+npm install
+```
+2. Para iniciar o servidor local:
 ```bash
 ng serve
 ```
+3. Assim que o servidor estiver em execução, abra seu navegador e acesse `http://localhost:4200/`. O aplicativo será recarregado automaticamente sempre que você modificar algum dos arquivos de origem.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Usuário de teste
 
-## Code scaffolding
+Email: teste@ez.com
+Senha: 12345678
+(Esse usuário de teste serve apenas para acesso ao Dashboard)
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Como criar um usuário para testes restantes:
 
-```bash
-ng generate component component-name
-```
+1. Acesse: '/create-password'
+2. Use qualquer e-mail (ex.: teste1@ez.com)
+3. Use o código: 123456
+4. Defina uma senha (mínimo 8 caracteres)
+5. Depois disso, faça login em: '/login'
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Código do mock
 
-```bash
-ng generate --help
-```
+Código válido: 123456
 
-## Building
+## Decisões técnicas
 
-To build the project run:
+Este projeto teve como objetivo principal proporcionar o primeiro contato prático com o framework Angular. Apesar disso, já possuía base sólida em HTML, CSS, JavaScript e TypeScript, o que permitiu uma adaptação rápida à linguagem e maior foco na arquitetura da aplicação e nos conceitos específicos do Angular.
 
-```bash
-ng build
-```
+Durante o desenvolvimento, aprofundei o uso de:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- Componentização e ciclo de vida
+- Rotas protegidas com Guards
+- Formulários reativos com validação
+- Serviços para separação de responsabilidades
 
-## Running unit tests
+Para acelerar o aprendizado e garantir a correta implementação das funcionalidades, utilizei conteúdos técnicos em vídeo (YouTube) e o ChatGPT como apoio para esclarecimento de dúvidas, análise de erros e entendimento do funcionamento adequado de cada parte do sistema. Esse processo foi essencial para superar dificuldades iniciais comuns a um primeiro contato com o framework.
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Um dos maiores aprendizados foi a simulação de um backend, utilizando localStorage como persistência de dados. Embora já conhecesse o recurso, foi a primeira vez que o utilizei para implementar regras próximas às de um sistema real, como autenticação, criação e recuperação de senha, controle de expiração e gerenciamento de estado.
 
-```bash
-ng test
-```
+O projeto exigiu lidar com desafios reais de front-end moderno, incluindo:
 
-## Running end-to-end tests
+- Gerenciamento de estado e loading
+- Fluxos assíncronos
+- Controle de tempo e UX
+- Organização de código escalável
 
-For end-to-end (e2e) testing, run:
+Dessa forma, o projeto contribuiu para a consolidação da base em Angular e para o desenvolvimento da capacidade de aprender novas tecnologias, analisar problemas técnicos e implementar soluções funcionais, servindo como base para evoluções futuras com backend real e aplicações mais complexas.
 
-```bash
-ng e2e
-```
+## Melhorias futuras
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- Substituir ApiMockService por API real e persistência em banco.
+- Iplementar hash de senha e autenticação baseada em JWT.
+- Criar HTTP Interceptor para anexar token automaticamente em requisições.
+- Melhorar acessibilidade e responsividade mobile.
+- Melhorar componentes visuais.
 
-## Additional Resources
+## GitHub
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+https://github.com/markin-98
