@@ -68,6 +68,7 @@ Dessa forma, o projeto contribuiu para a consolidação da base em Angular e par
 - Melhorar acessibilidade e responsividade mobile.
 - Melhorar componentes visuais.
 
-## GitHub
+## Redes
 
+https://www.linkedin.com/in/marcusviniciusfc/
 https://github.com/markin-98
